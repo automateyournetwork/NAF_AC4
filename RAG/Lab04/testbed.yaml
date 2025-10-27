@@ -1,0 +1,20 @@
+---
+devices:
+  R1:
+    alias: "Sandbox Router01"
+    type: "router"
+    os: "iosxe"
+    platform: CSR1kv
+    credentials:
+      default:
+        username: <your username>
+        password: <your password>
+      enable:
+        password: <your password>
+    connections:
+      cli:
+        protocol: ssh
+        ip: devnetsandboxiosxec9k.cisco.com
+        port: 22
+        arguments:
+          connection_timeout: 360
