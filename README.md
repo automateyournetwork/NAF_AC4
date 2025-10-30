@@ -45,7 +45,7 @@ export OPENAI_API_KEY="Key Provided By John"
 10. Clone this repository to your local machine:
    ```bash
    git clone https://github.com/automateyournetwork/NAF_AC4
-    ```
+   ```
 
 11. Navigate to the project directory:
     ```bash
