@@ -34,7 +34,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 if user_question:
     with st.spinner("🤔 Thinking about what to do..."):
         plan_response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4o",
             messages=[
                 {"role": "system", "content": PLANNER_SYSTEM_PROMPT},
                 {"role": "user", "content": user_question}
