@@ -18,7 +18,7 @@ Add the following MCPs:
 	"args": [
 		"env",
 		"python3",
-		"/home/<homedir>/ONUG_MCP_NYC_2025/Lab01/server.py"
+		"/home/<homedir>/NAF_AC4/Lab01/server.py"
 	],
 },
 "subnet-calculator": {
@@ -27,7 +27,7 @@ Add the following MCPs:
 	"args": [
 		"env",
 		"python3",
-	    "/home/<homedir>/ONUG_MCP_NYC_2025/Lab02/server.py"
+	    "/home/<homedir>/NAF_AC4/Lab02/server.py"
 	],
 },
 "pyats": {
@@ -35,9 +35,9 @@ Add the following MCPs:
 	"command": "wsl",
 	"args": [
 		"env",
-		"PYATS_TESTBED_PATH=/home/<homedir>/ONUG_MCP_NYC_2025/Lab03/testbed.yaml",
+		"PYATS_TESTBED_PATH=/home/<homedir>/NAF_AC4/Lab03/testbed.yaml",
 		"python3",
-		"/home/<homedir>/ONUG_MCP_NYC_2025/Lab03/server.py"
+		"/home/<homedir>/NAF_AC4/Lab03/server.py"
 	]
 }    
 
