@@ -1,77 +1,163 @@
 # Network Automation Forum - Autocon4 - RAG And MCP Session
 
-Repository for NAF AC4 in Austin, Texas - RAG Session
-John Capobianco 
+Repository for NAF AC4 in Austin, Texas - RAG Session  
+John Capobianco
+
+---
+
+## Prerequisites
+
+### 1. Git
+Ensure you have Git installed. Download it from [git-scm.com](https://git-scm.com/).
+
+### 2. Python 3.10.14 (Required)
+
+> ⚠️ **This project requires Python 3.10.14.** Newer versions (3.11+) are not compatible with all dependencies, particularly `pyats[full]`.
+
+We recommend managing Python versions with **pyenv**.
+
+#### Install pyenv (macOS/Linux)
+```bash
+# macOS (via Homebrew)
+brew install pyenv
+
+# Linux
+curl https://pyenv.run | bash
+```
+
+#### Add pyenv to your shell (add these lines to ~/.zshrc or ~/.bashrc)
+```bash
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+```
+
+Then reload your shell:
+```bash
+source ~/.zshrc   # or source ~/.bashrc
+```
+
+#### Install and set Python 3.10.14
+```bash
+pyenv install 3.10.14
+```
+
+Navigate to the project directory and pin the version locally:
+```bash
+cd NAF_AC4
+pyenv local 3.10.14
+python3 --version   # should output: Python 3.10.14
+```
+
+### 3. Windows Users — WSL2 + Ubuntu
+- WSL2: [Installation guide](https://docs.microsoft.com/en-us/windows/wsl/install)
+- Ubuntu: [Installation guide](https://docs.microsoft.com/en-us/windows/wsl/install)
+
+All commands below should be run inside your Ubuntu WSL2 terminal.
+
+### 4. Visual Studio Code
+Download and install from [code.visualstudio.com](https://code.visualstudio.com/).
+
+---
 
 ## Getting Started
 
-1. Git - Please ensure you have Git installed on your machine. You can download it from [git-scm.com](https://git-scm.com/).
+### 1. Clone the repository
+```bash
+git clone https://github.com/automateyournetwork/NAF_AC4
+cd NAF_AC4
+```
 
-2. Python - Make sure you have Python installed. You can download it from [python.org](https://www.python.org/downloads/).
+### 2. Confirm Python version
+```bash
+python3 --version   # must be 3.10.14
+```
 
-3. wsl - If you are using Windows, please ensure you have WSL2 installed. You can follow the instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install).
+If it shows a different version, revisit the pyenv setup above.
 
-4. Ubuntu - If you are using WSL2, please ensure you have Ubuntu installed. You can follow the instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install).
+### 3. Create and activate a virtual environment
+```bash
+python3 -m venv venv
+```
 
-6. Clone this repository to your local machine:
-   ```bash
-   git clone https://github.com/automateyournetwork/NAF_AC4
-   ```
+- **macOS/Linux:**
+  ```bash
+  source venv/bin/activate
+  ```
+- **Windows (WSL2):**
+  ```bash
+  source venv/bin/activate
+  ```
+- **Windows (CMD):**
+  ```bash
+  venv\Scripts\activate
+  ```
 
-7. Virtual Environment - It's a good practice to create a virtual environment for your Python projects. You can do this using the following command:
-   
-   ```bash
-   python -m venv venv
-   ```
-
-8. Activate the virtual environment:
-   - On Windows:
-     ```bash
-     venv\Scripts\activate
-     ```
-   - On macOS/Linux:
-     ```bash
-     source venv/bin/activate
-     ```
-
-9. Install VS Code - If you haven't already, download and install Visual Studio Code from [code.visualstudio.com](https://code.visualstudio.com/).
-
-10. Export enviroment variable 
-
+### 4. Set your OpenAI API key
 ```bash
 export OPENAI_API_KEY="Key Provided By John"
 ```
 
-11. Install Required Packages - Use the following command to install the required packages:
-    ```bash
-    (venv)% cd NAF_AC4
-    (venv)NAF_AC4 %python3 -m pip install -r requirements.txt
-    (vent)NAF_AC4 npm install -g @toon-format/cli
-    ```
+### 5. Install required packages
+```bash
+pip install -r requirements.txt
+```
 
-12. Open the project in Visual Studio Code:
-    ```bash
-    code .
-    ```
+### 6. Open in VS Code
+```bash
+code .
+```
 
-13. Cisco DevNet Always On 9k - Get credentials for the Always On Cisco 9k
+---
 
+## Cisco DevNet Always-On Catalyst 9k
+
+Get credentials for the Always-On Cisco 9k sandbox:  
 https://devnetsandbox.cisco.com/DevNet/catalog/Cat9k-Always-On_cat9k-always-on
 
-Update your testbed.yaml files
+Update your `testbed.yaml` files with the correct credentials and URL before running any pyATS-dependent labs.
 
-## RAG Lab Instructions - 
+---
 
-Setup your venv, install requirements.txt, run the labs - change directory in to Lab01, Lab02, Lab03 etc and run the respective python files.
+## RAG Lab Instructions
 
-Some labs will be streamlit apps - run them with streamlit run app.py
+1. Activate your venv and confirm dependencies are installed.
+2. Change into the lab directory (e.g. `Lab01`, `Lab02`, `Lab03`).
+3. Run the respective Python file:
+   ```bash
+   python3 lab.py
+   ```
+4. Some labs are Streamlit apps — run them with:
+   ```bash
+   streamlit run app.py
+   ```
 
-## MCP Lab Instructions -
+---
 
-Change into the Lab01, Lab02 etc directories and run the respective python files. First run the server to start it up, stop the server, then run the client to connect to the server and execute commands.
+## MCP Lab Instructions
 
-## Testbed.yaml File
+1. Change into the lab directory (e.g. `Lab01`, `Lab02`).
+2. Start the MCP server:
+   ```bash
+   python3 server.py
+   ```
+3. Stop the server (`Ctrl+C`), then run the client:
+   ```bash
+   python3 client.py
+   ```
 
-You should have a devnet sandbox for the always on 9k update your testbed.yaml file with the correct credentials and URL and such. Test SSH connectivity with pyats before running the MCP labs.
+---
 
-IF you want more advanced lab environment you can try the CML reserverable lab; generate crypto keys on the 4 devices; and update your testbed.yaml file with the correct IP addresses and credentials.
+## Testbed Configuration
+
+Update your `testbed.yaml` with the correct credentials, URL, and device details before running MCP labs.
+
+**Test SSH connectivity before running labs:**
+```bash
+pyats run job <your_job_file> --testbed-file testbed.yaml
+```
+
+### Optional: Advanced CML Lab Environment
+For a more advanced setup, use the CML reservable lab:
+1. Generate crypto keys on each of the 4 devices.
+2. Update `testbed.yaml` with the correct IP addresses and credentials.
