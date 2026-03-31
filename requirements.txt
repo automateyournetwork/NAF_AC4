@@ -17,5 +17,4 @@ mcp
 pydantic
 python-dotenv
 openai
-ipaddr
 pyats[full]
