@@ -10,7 +10,7 @@ import uuid
 
 # --- Step 1: Connect to device and get parsed JSON ---
 testbed = load("testbed.yaml")
-device = testbed.devices["CAT9k_AO"]
+device = testbed.devices["Cat9k_AO_Sandbox"]
 device.connect(log_stdout=True)
 parsed_output = device.parse("show ip interface brief")
 

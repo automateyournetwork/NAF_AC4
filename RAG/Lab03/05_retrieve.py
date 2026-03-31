@@ -11,7 +11,7 @@ import uuid
 
 # --- Step 1: Connect to device and get parsed JSON ---
 testbed = load("testbed.yaml")
-device = testbed.devices["CAT9k_AO"]
+device = testbed.devices["Cat9k_AO_Sandbox"]
 device.connect(log_stdout=True)
 parsed_output = device.parse("show ip interface brief")
 
@@ -74,7 +74,7 @@ qa_chain = ConversationalRetrievalChain.from_llm(
 )
 
 chat_history = []
-q2 = "Help me understand my interfaces for CAT9k_AO?"
+q2 = "Help me understand my interfaces for Cat9k_AO_Sandbox?"
 response = qa_chain.invoke({"question": q2, "chat_history": chat_history})
 
 print(f"\n🧠 Answer: {response['answer']}\n")

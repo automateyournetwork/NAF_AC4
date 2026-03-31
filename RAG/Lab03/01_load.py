@@ -7,7 +7,7 @@ import os
 
 # --- Step 1: Load testbed and connect to device ---
 testbed = load("testbed.yaml")
-device = testbed.devices["CAT9k_AO"]
+device = testbed.devices["Cat9k_AO_Sandbox"]
 device.connect(log_stdout=True)
 
 # --- Step 2: Parse CLI output to JSON ---

@@ -8,16 +8,16 @@ from langchain.chains import ConversationalRetrievalChain
 import tempfile, os, json, uuid
 
 # --- UI Setup ---
-st.set_page_config(page_title="Chat with CAT9k_AO Interface Table", page_icon="🛣️")
-st.title("🛣️ Chat with Your CAT9k_AO Interface Table")
-st.markdown("Ask anything about the live Interface table retrieved from CAT9k_AO using pyATS!")
+st.set_page_config(page_title="Chat with Cat9k_AO_Sandbox Interface Table", page_icon="🛣️")
+st.title("🛣️ Chat with Your Cat9k_AO_Sandbox Interface Table")
+st.markdown("Ask anything about the live Interface table retrieved from Cat9k_AO_Sandbox using pyATS!")
 
 # --- Cached RAG Pipeline Setup ---
 def setup_routing_chain():
-    # Step 1: Connect to CAT9k_AO and get routing table
+    # Step 1: Connect to Cat9k_AO_Sandbox and get routing table
     testbed = load("testbed.yaml")
-    device = testbed.devices["CAT9k_AO"]
-    print("🔌 Connecting to CAT9k_AO...")
+    device = testbed.devices["Cat9k_AO_Sandbox"]
+    print("🔌 Connecting to Cat9k_AO_Sandbox...")
     device.connect(log_stdout=True)
     parsed_output = device.parse("show ip interface brief")
 
@@ -60,7 +60,7 @@ qa_chain = setup_routing_chain()
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-question = st.text_input("💬 Ask a question about CAT9k_AO's Interface table:")
+question = st.text_input("💬 Ask a question about Cat9k_AO_Sandbox's Interface table:")
 
 if question:
     with st.spinner("Thinking..."):
@@ -73,5 +73,5 @@ if question:
 # --- Display Chat History ---
 for user_q, answer in reversed(st.session_state.chat_history):
     st.markdown(f"**🧑‍💻 You:** {user_q}")
-    st.markdown(f"**🤖 CAT9k_AO Interface Bot:** {answer}")
+    st.markdown(f"**🤖 Cat9k_AO_Sandbox Interface Bot:** {answer}")
     st.markdown("---")

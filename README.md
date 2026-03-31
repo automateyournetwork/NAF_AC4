@@ -118,6 +118,10 @@ https://devnetsandbox.cisco.com/DevNet/catalog/Cat9k-Always-On_cat9k-always-on
 Update your `testbed.yaml` files with the correct credentials and URL before running any pyATS-dependent labs.
 
 ---
+## TOON Requirements
+
+Install npm install -g @toon-format/cli to support TOON
+
 
 ## RAG Lab Instructions
 

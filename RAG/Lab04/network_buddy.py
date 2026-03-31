@@ -109,7 +109,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 # -------------------------------------------------
 # UI Input
 # -------------------------------------------------
-user_question = st.text_input("💬 What do you want to know? (e.g., 'What is the default route on CAT9k_AO?')")
+user_question = st.text_input("💬 What do you want to know? (e.g., 'What is the default route on Cat9k_AO_Sandbox?')")
 
 # -------------------------------------------------
 # Main Logic

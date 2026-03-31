@@ -4,7 +4,7 @@ devices:
     alias: "SCat9k_AO_Sandbox"
     type: "router"
     os: "iosxe"
-    platform: CSCAT9k_AOkv
+    platform: CSCat9k_AO_Sandboxkv
     credentials:
       default:
         username: ptcapo
