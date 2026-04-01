@@ -8,7 +8,6 @@ langchain-openai
 langchain-core
 langgraph
 openai
-pyats[full]
 pypdf
 tiktoken
 scikit-learn
